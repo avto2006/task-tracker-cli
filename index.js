@@ -12,9 +12,7 @@ const command = process.argv[2]
 
 const text = process.argv.slice(3).join(" ")
 
-const status = 'done'
-
-
+// const status;
 
 console.log(`Command: ${command}
 Task: ${text}
@@ -28,12 +26,17 @@ Task: ${text}
  const object = {
     id: id,
     description: text,
-    status: status,
+    status: "done",
     createdAt: new Date(),
     updatedAt: new Date()
- }   
+ }  
+ 
+ tasks.push(object)
+ const changedTasks = JSON.stringify(tasks)
+ 
+ fs.writeFileSync('tasks.json', changedTasks)
+ 
 
- const objectGo = JSON.stringify(object)
- tasks.push(objectGo)
+
 
  
