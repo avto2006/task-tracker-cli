@@ -10,6 +10,8 @@ console.log(tasks);
 
 const command = process.argv[2]
 
+
+
 const text = process.argv.slice(3).join(" ")
 
 // const status;
@@ -34,8 +36,19 @@ Task: ${text}
  tasks.push(object)
  const changedTasks = JSON.stringify(tasks)
  
- fs.writeFileSync('tasks.json', changedTasks)
+//  fs.writeFileSync('tasks.json', changedTasks)
  
+if (command === 'list') {
+
+    for(let i = 0; i < tasks.length; i++) {
+         console.log(`
+                   id: ${tasks[i].id},
+                   description: ${tasks[i].description},
+                   status: ${tasks[i].status}
+            `);
+    }
+
+}
 
 
 
