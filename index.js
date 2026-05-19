@@ -14,6 +14,8 @@ const command = process.argv[2]
 
 const text = process.argv.slice(3).join(" ")
 
+
+
 // const status;
 
 console.log(`Command: ${command}
@@ -49,6 +51,38 @@ if (command === 'list') {
     }
 
 }
+
+if (command === "list"  &&  text === "done") {
+    const done = tasks.filter(e => e.status === 'done')
+     for(let i = 0; i < done.length; i++) {
+    console.log(`
+            id: ${done[i].id},
+            description: ${done[i].description},
+            status: ${done[i].status}
+        `);
+    }
+    
+} else if (command === "list" && text === "todo") {
+ const todo = tasks.filter(e => e.status === 'todo')
+     for(let i = 0; i < todo.length; i++) {
+    console.log(`
+            id: ${todo[i].id},
+            description: ${todo[i].description},
+            status: ${todo[i].status}
+        `);
+    }
+} else if (command === "list" && text === "in_progress") {
+     const in_progress = tasks.filter(e => e.status === 'in_progress')
+     for(let i = 0; i < in_progress.length; i++) {
+    console.log(`
+            id: ${in_progress[i].id},
+            description: ${in_progress[i].description},
+            status: ${in_progress[i].status}
+        `);
+    }
+}
+
+
 
 
 
